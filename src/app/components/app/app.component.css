@@ -1,0 +1,5 @@
+.img-hand:hover {
+    cursor: pointer;
+    background-color: #ccc;
+    border-radius: 45%;
+}
