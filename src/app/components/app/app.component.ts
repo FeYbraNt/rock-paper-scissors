@@ -9,31 +9,35 @@ export class AppComponent {
   title = 'Rock, paper & scissors';
 
   showTurn: boolean;
-  games = [];
+  aiMove = '';
+  playerMove = '';
   result;
+  games;
 
-  constructor() { this.showTurn = true; }
+  constructor() { this.games = []; this.showTurn = true; }
 
   handleMove(playerMove) {
-    const aiMove = this.getAIMove();
-    this.result = this.scoreGame(playerMove, aiMove);
+    this.playerMove = playerMove;
+    this.aiMove = this.getAIMove();
+    this.result = this.scoreGame(this.playerMove, this.aiMove);
 
     this.showTurn = false;
-    console.log('Player chooses ' + playerMove + ', AI chooses ' + aiMove + '.');
     console.log('Winner is ' + (this.result === 1 ? 'player.' : this.result === 2 ? 'AI.' : 'draw.'));
+
+    this.games.push({ winner: this.result });
   }
 
   getAIMove() {
-    const moves = ['R', 'P', 'S'];
+    const moves = ['Rock', 'Paper', 'Scissors'];
     return moves[Math.floor(Math.random() * 3)];
   }
 
   scoreGame(p1Move, p2Move) {
     if (p1Move === p2Move) { return 'draw' }
 
-    if ( (p1Move === 'R' && p2Move === 'S') ||
-         (p1Move === 'P' && p2Move === 'R') ||
-         (p1Move === 'S' && p2Move === 'P') ) {
+    if ( (p1Move === 'Rock' && p2Move === 'Scissors') ||
+         (p1Move === 'Paper' && p2Move === 'Rock') ||
+         (p1Move === 'Scissors' && p2Move === 'Paper') ) {
       return 1  // first player wins
 
     } else {
