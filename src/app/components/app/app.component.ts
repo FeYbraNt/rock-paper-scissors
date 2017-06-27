@@ -22,8 +22,6 @@ export class AppComponent {
     this.result = this.scoreGame(this.playerMove, this.aiMove);
 
     this.showTurn = false;
-    console.log('Winner is ' + (this.result === 1 ? 'player.' : this.result === 2 ? 'AI.' : 'draw.'));
-
     this.games.push({ winner: this.result });
   }
 

@@ -9,6 +9,14 @@ describe('rock-paper-scissors App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!!');
+    expect(page.getParagraphText()).toEqual('Welcome to Rock, paper & scissors!!');
   });
+
+  it('should play a paper hand and play again button is shown', () => {
+    page.navigateTo();
+    page.getPaperHandElement().click();
+
+    expect(page.getPlayAgainButtonElement().isDisplayed()).toBeTruthy();
+  });
+
 });
