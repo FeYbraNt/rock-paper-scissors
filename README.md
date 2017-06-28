@@ -1,6 +1,7 @@
-# RockPaperScissors
+# Rock Paper Scissors
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.3.
+- Run `npm install` after you download the project
+- This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.3.
 
 ## Development server
 
